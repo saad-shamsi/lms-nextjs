@@ -2,7 +2,7 @@ import { NextFunction } from "express";
 import ErrorHandler from "../utils/ErrorHandler.js";
 export { NextFunction, Request, Response } from "express";
 
-module.exports = (
+export const ErrorMiddleware = (
   err: any,
   req: Request,
   res: Response,
@@ -31,8 +31,8 @@ module.exports = (
     const message = `Json Web Token is expired. Try Again!!!`;
     err = new ErrorHandler(message, 400);
   }
-  res.status(err.statusCode).json({
-    success: false,
-    message: err.message,
-  });
+  // res.status(err.statusCode).json({
+  //   success: false,
+  //   message: err.message,
+  // });
 };
